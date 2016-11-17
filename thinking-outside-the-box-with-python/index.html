@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <title>Thinking Outside the Box with Python</title>
+
+  <meta name="keywords"
+	content="Motoma, programming, python" />
+  <meta name="description"
+	content="I recently came across this job posting in the The Scripts Developer Network forums. It has an interesting brain teaser as a requirement for applying. The brain teaser was stated as: "What is the exponent of the largest power of two whose base seven representation doesn't contain three zeros in a row?" The only stipulation was that the applicant use Python to solve the problem." />
+
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="Blagmaster" />
+  <meta name="google-site-verification"
+        content="fpiMFEd5SHR15hcV7NKYxnCoqx3zGOOC-iqaJdArezw" />
+  <meta name="msvalidate.01" content="3209533A2A0F73D1250D50E3CB1ADEF4" />
+
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="stylesheet" type="text/css" href="/static/layout.css" />
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <header>
+    <h1><a href="/">
+      <img src="/static/motoma.io.32.inverted.eps.png" alt="Motoma.io" />
+    </a></h1>
+  </header>
+
+  <nav>
+    
+    <ul>
+      <li class="link">
+        <a href="/about/" title="Learn more about me" class="link">About</a>
+      </li>
+        
+      <li class="current">
+        <a href="/" title="Goto the blog" class="current">Blog</a>
+      </li>
+    </ul>
+    
+
+    <section>
+      <a href="/motoma.asc">
+	<img src="/static/gpg.png" alt="GPG Public Key" /></a>
+      <a href="http://www.linkedin.com/in/motoma" rel="me">
+	<img src="/static/linkedin.png" alt="LinkedIn"/></a>
+      <a href="http://www.facebook.com/motoma" rel="me">
+	<img src="/static/facebook.png" alt="Facebook"/></a>
+      <a href="http://www.twitter.com/motoma" rel="me">
+	<img src="/static/twitter.png" alt="Twitter" /></a>
+      <a href="https://plus.google.com/106366683920288141812?rel=author"
+	 rel="me">
+	<img src="/static/gplus.png" alt="Google+"/></a>
+      <a href="http://www.github.com/motoma" rel="me">
+	<img src="/static/github.png" alt="GitHub"/></a>
+    </section>
+  </nav>
+
+  <section class="content">
+    
+    <article class="hentry">
+      <h3>
+	<a href="/thinking-outside-the-box-with-python/" class="entry-title">Thinking Outside the Box with Python</a>
+      </h3>
+      <p class="byline author vcard instapaper_ignore entry-unrelated">
+        <time class="published updated" datetime="2007-05-18">
+          2007-05-18</time> by
+        <a href="http://motoma.io/about/" rel="author" class="fn nickname url"
+	   lang="en">Motoma</a>, tagged as
+        
+        <a href="/tags/programming" rel="tag">
+	  programming</a>
+        
+        <a href="/tags/python" rel="tag">
+	  python</a>
+        
+        
+      </p>
+      
+<p>I recently came across <a href="http://www.thescripts.com/forum/thread647817.html">this job posting</a> in the <a href="http://www.thescripts.com">The Scripts Developer Network</a> forums. It has an interesting brain teaser as a requirement for applying. The brain teaser was stated as: "What is the exponent of the largest power of two whose base seven representation doesn't contain three zeros in a row?" The only stipulation was that the applicant use Python to solve the problem.</p>
+
+<!-- break -->
+
+<h4>My Initial Approach</h4>:
+<p>My inital approach to the problem is blunt and straight forward. I build three functions, BaseSeven which takes a number and convert it to base seven, HasThreeZeros which takes a number and checks if it has three zeros in it, and FindWithoutZeros which was the main loop of my program. The code for my problem is listed below:</p>
+<script src="https://gist.github.com/862306.js?file=threezeros.1.py"></script>
+
+<p>The solution is quick and dirty, though severely lacking in elegance and speed. The biggest problem with this solution is that the program is constantly performing arithmetic operations on a huge number; when the exponent climbs into the upper thousands, it takes well over a minute to build, convert, and check a single number.</p>
+
+<p>"There is no need for this," I say to myself, "There is a better way to do it."</p>
+
+<h4>Round 2</h4>:
+<p>With a new cup of coffee in hand, I begin to further analyze the problem. Rereading the problem, I begin to think about the properties of powers of two: the most important property being that each successive power of two is double the previous. I know this is a pretty rudementary conclusion, however, realizing that the same will hold true for the base seven equivalent is the key to solving this problem efficiently.</p>
+
+<p>I begin constructing a class, titled BaseSevenNumber. I give it a list, named digits, whose elements will contain a single base seven digit. I build a constructor to initialize this list to [1], and a member function titled Double which will handle my "exponentiation." I finish off the class by creating another member, aptly titled HasThreeZeros, to give me the current status of number.</p>
+
+<h4>The Double Function</p>:
+<p>BaseSevenNumber's Double function would hold the key to solving this problem in a timely manner. Rather than perform one arithmetic operation on a huge number, I design my second program to perform many arithmetic operations on a handful of tiny numbers. Iterating through the list, Double doubles each digit in the digits list, and in a second pass, performs all base seven carry operations. the HasThreeZeros function can now quickly traverse the digits list, and return the appropriate status for the current base seven number.</p>
+<script src="https://gist.github.com/862309.js?file=threezeros.2.py"></script>
+  
+<p>Thoroughly pleased with my ability to think my way around the problem, I put the code to the test. In a meager 16 seconds, it has given me the answer I am looking for. Talk about using the wrong tools for the job; just because the problem stated "power of two" and "base seven representation" does not mean one should restrict oneself to these methods. A careful and thorough analysis of a problem can give one an efficient, elegant, and fast solution to some of the trickiest of problems.</p>
+
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'motomastyle';
+	var disqus_identifier = '/thinking-outside-the-box-with-python';
+	var disqus_url = 'http://motoma.io//thinking-outside-the-box-with-python';
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script');
+          dsq.type = 'text/javascript';
+          dsq.async = true;
+          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || 
+            document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the 
+      <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by 
+      <span class="logo-disqus">Disqus</span></a>
+    </article>
+
+  </section>
+
+  <aside>
+    <section class="projects">
+      <ul>
+	
+	<li class="odd">
+	  <a href="https://www.github.com/Motoma/bitgirl">BitGirl</a>
+	  <p>BitGirl is a fully pluggable Python-based IRC bot which allows dynamic command and module loading, unloading, and reloading on the fly.</p>
+	</li>
+	
+	<li class="even">
+	  <a href="https://code.google.com/p/socksipy-branch/">socksipy-branch</a>
+	  <p>A Python SOCKS client module This module was designed to allow developers of Python software that uses the Internet or another TCP/IP-based.</p>
+	</li>
+	
+	<li class="odd">
+	  <a href="http://sourceforge.net/projects/pyloris/">PyLoris</a>
+	  <p>PyLoris is a scriptable tool for testing a server's vulnerability to connection exhaustion denial of service (DoS) attacks.</p>
+	</li>
+	
+      </ul>
+    </section>
+
+    <section class="random">
+      <h4>/dev/urandom</h4>
+      <p>"It's much better to do good in a way that no one knows anything about it."</p>
+      <p> - Leo Tolstoy, <u>Anna Karenina</u></p>
+    </section>
+
+    <section class="links">
+      <h4>Blogs I Follow</h4>
+      <ul>
+	<li><a href="http://www.ciaworks.com/">CIA Works</a></li>
+        <li><a href="http://www.eflorenzano.com/">Die in a Fire</a></li>
+	<li><a href="http://hackingdistributed.com/">Hacking, Distributed</a></li>
+	<li><a href="http://jacobian.org/writing/">Jacob Kaplan-Moss</a></li>
+	<li><a href="http://robert-hansen.com/">Known Plaintext</a></li>
+        <li><a href="http://www.lostgarden.com/">Lost Garden</a></li>
+        <li><a href="http://parsedcontent.blogspot.com/">
+	    { Parsed Content }</a></li>
+        <li><a href="http://www.particlesinmotion.com/">
+	    Particles in Motion</a></li>
+        <li><a href="http://www.schneier.com/">Schneier on Security</a></li>
+        <li><a href="http://teddziuba.com/">Ted Dziuba</a></li>
+        <li><a href="http://rdist.root.org/">root labs rdist</a></li>
+        <li><a href="http://www.veracode.com/blog">
+	    Veracode Security Blog</a></li>
+	<li><a href="http://www.veryofficial.com/">Very Official</a></li>
+      </ul>
+    </section>
+
+    <section class="links">
+      <h4>Web Comics</h4>
+      <ul>
+        <li><a href="http://www.dresdencodak.com/">Dresden Codak</a></li>
+        <li><a href="http://www.xkcd.com/">XKCD</a></li>
+      </ul>
+    </section>
+  </aside>
+
+  <footer>
+    <p>motoma.io and all content therein is copyright of Christopher Gilbert 
+      — &copy; 2016 All rights reserved.</p>
+  </footer>
+
+  <script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    var pageTracker = _gat._getTracker("UA-1667338-1");
+    pageTracker._initData();
+    pageTracker._trackPageview();
+  </script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <title>Gumstix Verdex has finally arrived!</title>
+
+  <meta name="keywords"
+	content="Motoma, console-vx, gumstix, kernel, linux, programming, serial, usb, verdex, webcam, wifi, wireless" />
+  <meta name="description"
+	content="I received my Gumstix Verdex XL6P and the matching Console-VX board from the friendly UPS man last night." />
+
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="Blagmaster" />
+  <meta name="google-site-verification"
+        content="fpiMFEd5SHR15hcV7NKYxnCoqx3zGOOC-iqaJdArezw" />
+  <meta name="msvalidate.01" content="3209533A2A0F73D1250D50E3CB1ADEF4" />
+
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="stylesheet" type="text/css" href="/static/layout.css" />
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <header>
+    <h1><a href="/">
+      <img src="/static/motoma.io.32.inverted.eps.png" alt="Motoma.io" />
+    </a></h1>
+  </header>
+
+  <nav>
+    
+    <ul>
+      <li class="link">
+        <a href="/about/" title="Learn more about me" class="link">About</a>
+      </li>
+        
+      <li class="current">
+        <a href="/" title="Goto the blog" class="current">Blog</a>
+      </li>
+    </ul>
+    
+
+    <section>
+      <a href="/motoma.asc">
+	<img src="/static/gpg.png" alt="GPG Public Key" /></a>
+      <a href="http://www.linkedin.com/in/motoma" rel="me">
+	<img src="/static/linkedin.png" alt="LinkedIn"/></a>
+      <a href="http://www.facebook.com/motoma" rel="me">
+	<img src="/static/facebook.png" alt="Facebook"/></a>
+      <a href="http://www.twitter.com/motoma" rel="me">
+	<img src="/static/twitter.png" alt="Twitter" /></a>
+      <a href="https://plus.google.com/106366683920288141812?rel=author"
+	 rel="me">
+	<img src="/static/gplus.png" alt="Google+"/></a>
+      <a href="http://www.github.com/motoma" rel="me">
+	<img src="/static/github.png" alt="GitHub"/></a>
+    </section>
+  </nav>
+
+  <section class="content">
+    
+    <article class="hentry">
+      <h3>
+	<a href="/gumstix-verdex-has-finally-arrived/" class="entry-title">Gumstix Verdex has finally arrived!</a>
+      </h3>
+      <p class="byline author vcard instapaper_ignore entry-unrelated">
+        <time class="published updated" datetime="2007-06-08">
+          2007-06-08</time> by
+        <a href="http://motoma.io/about/" rel="author" class="fn nickname url"
+	   lang="en">Motoma</a>, tagged as
+        
+        <a href="/tags/console-vx" rel="tag">
+	  console-vx</a>
+        
+        <a href="/tags/gumstix" rel="tag">
+	  gumstix</a>
+        
+        <a href="/tags/kernel" rel="tag">
+	  kernel</a>
+        
+        <a href="/tags/linux" rel="tag">
+	  linux</a>
+        
+        <a href="/tags/programming" rel="tag">
+	  programming</a>
+        
+        <a href="/tags/serial" rel="tag">
+	  serial</a>
+        
+        <a href="/tags/usb" rel="tag">
+	  usb</a>
+        
+        <a href="/tags/verdex" rel="tag">
+	  verdex</a>
+        
+        <a href="/tags/webcam" rel="tag">
+	  webcam</a>
+        
+        <a href="/tags/wifi" rel="tag">
+	  wifi</a>
+        
+        <a href="/tags/wireless" rel="tag">
+	  wireless</a>
+        
+        
+      </p>
+      
+<p>I received my <a href=http://www.gumstix.com/store/catalog/product_info.php?cPath=27&amp;products_id=178>Gumstix Verdex XL6P</a> and the matching <a href=http://gumstix.com/store/catalog/product_info.php?products_id=185>Console-VX</a> board from the friendly UPS man last night.</p>
+
+<!-- break -->
+
+<p>After 15 minutes of set-up and tinkering, I had my <a href=http://www.chiark.greenend.org.uk/~sgtatham/putty/>PuTTY</a> terminal greeted me with with a friendly login prompt:</p>
+<script src="https://gist.github.com/862342.js?file=gistfile1.txt"></script>
+
+<p>So far I have had quite a bit of fun playing with it. I am using USB to power the tiny machine, and connecting to it over a USB to Serial connection cable from my laptop. Two things have caused me frustration, however: the Verdex board (according to the meager documentation I have found) does not support USB networking (a.k.a USBnet), and the USB host connector is a USB-B female connection.</p>
+
+<p>Now, neither one of these would be much more than a nuisance alone, yet together they put a heavy damper on my intent for the board. USB Host is a very welcome (and in my opinion necessary) addition for a HL programmer like myself, but I have been unable to find the proper connectors at my local hardware stores. At this point I am sure that you are asking me "Why didn't you pick up the <a href=http://gumstix.com/store/catalog/product_info.php?products_id=187>Gender Changer</a> that they supply for just that purpose?" The thing is, I never expected that this would be an uncommon part, and for $8 I figure I would be better off picking one up at the local Radio Shack. I walked in and asked the two men at the counter for a USB-A gender changer, and the smacktards cracked up giggling. BOH! I will not be able to connect with this wirelessly until I am able to get one of these damn parts to plug my B/G adapter in to.</p>
+
+<p>The lack of USBnet ability is another frustrating thing (this is probably related to the fact that the Console-VX board is a USB Host, rather than client); I wanted to be able to set up a bridged network connection and try out the portage system that the Gumstix supports. I have always been a big fan of Gentoo (link at the bottom of the menu) and I figured this would be a great little fun way to get the system set up. I had big plans for this too: create a samba share on my laptop to act as the primary storage for the Gumstix, keep X11 running on the laptop, and use X11 forwarding over the USBnet to run native Linux GUI applications from the device. This would be the ultimate merging of the Windows and Linux environment; finally I would have both the Linux and Windows interfaces running on the same data side by side.</p>
+
+<p>One last note: I have been unable thus far to get <a href=http://www.cygwin.com/>Cygwin</a> to properly build the buildroot system, leaving me feeling quite useless at the moment. I do not feel like getting a full <a href=http://fedoraproject.org/</a> virtual machine running in VMWare (the VMWare image is huge!) just to do a little cross compiling. I was hoping to use Microsoft's <a href=http://www.microsoft.com/windows/products/winfamily/virtualpc/default.mspx>Virtual PC 2007</a> to boot up a LiveCD distro, download the proper maketools and the gumstix-buildroot toolkit to a tiny vitual partition, and use that system to run my cross compiling. The problem with this is that most LiveCD distros are severely lacking as far as developer tools are concerned (Backtrack2 might have gcc) and the package systems are mostly broken, as these are LiveCD distros, and not intended to be used in the perverse ways I do.</p>
+
+<p>If anyone has a solution to any one of my problems, or wants an update on how my <a href=http://www.gumstix.com/>Gumstix</a> adventure is going, send me an email or give me a post.</p>
+
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'motomastyle';
+	var disqus_identifier = '/gumstix-verdex-has-finally-arrived';
+	var disqus_url = 'http://motoma.io//gumstix-verdex-has-finally-arrived';
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script');
+          dsq.type = 'text/javascript';
+          dsq.async = true;
+          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || 
+            document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the 
+      <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by 
+      <span class="logo-disqus">Disqus</span></a>
+    </article>
+
+  </section>
+
+  <aside>
+    <section class="projects">
+      <ul>
+	
+	<li class="odd">
+	  <a href="https://www.github.com/Motoma/bitgirl">BitGirl</a>
+	  <p>BitGirl is a fully pluggable Python-based IRC bot which allows dynamic command and module loading, unloading, and reloading on the fly.</p>
+	</li>
+	
+	<li class="even">
+	  <a href="https://code.google.com/p/socksipy-branch/">socksipy-branch</a>
+	  <p>A Python SOCKS client module This module was designed to allow developers of Python software that uses the Internet or another TCP/IP-based.</p>
+	</li>
+	
+	<li class="odd">
+	  <a href="http://sourceforge.net/projects/pyloris/">PyLoris</a>
+	  <p>PyLoris is a scriptable tool for testing a server's vulnerability to connection exhaustion denial of service (DoS) attacks.</p>
+	</li>
+	
+      </ul>
+    </section>
+
+    <section class="random">
+      <h4>/dev/urandom</h4>
+      <p>"It's much better to do good in a way that no one knows anything about it."</p>
+      <p> - Leo Tolstoy, <u>Anna Karenina</u></p>
+    </section>
+
+    <section class="links">
+      <h4>Blogs I Follow</h4>
+      <ul>
+	<li><a href="http://www.ciaworks.com/">CIA Works</a></li>
+        <li><a href="http://www.eflorenzano.com/">Die in a Fire</a></li>
+	<li><a href="http://hackingdistributed.com/">Hacking, Distributed</a></li>
+	<li><a href="http://jacobian.org/writing/">Jacob Kaplan-Moss</a></li>
+	<li><a href="http://robert-hansen.com/">Known Plaintext</a></li>
+        <li><a href="http://www.lostgarden.com/">Lost Garden</a></li>
+        <li><a href="http://parsedcontent.blogspot.com/">
+	    { Parsed Content }</a></li>
+        <li><a href="http://www.particlesinmotion.com/">
+	    Particles in Motion</a></li>
+        <li><a href="http://www.schneier.com/">Schneier on Security</a></li>
+        <li><a href="http://teddziuba.com/">Ted Dziuba</a></li>
+        <li><a href="http://rdist.root.org/">root labs rdist</a></li>
+        <li><a href="http://www.veracode.com/blog">
+	    Veracode Security Blog</a></li>
+	<li><a href="http://www.veryofficial.com/">Very Official</a></li>
+      </ul>
+    </section>
+
+    <section class="links">
+      <h4>Web Comics</h4>
+      <ul>
+        <li><a href="http://www.dresdencodak.com/">Dresden Codak</a></li>
+        <li><a href="http://www.xkcd.com/">XKCD</a></li>
+      </ul>
+    </section>
+  </aside>
+
+  <footer>
+    <p>motoma.io and all content therein is copyright of Christopher Gilbert 
+      — &copy; 2016 All rights reserved.</p>
+  </footer>
+
+  <script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    var pageTracker = _gat._getTracker("UA-1667338-1");
+    pageTracker._initData();
+    pageTracker._trackPageview();
+  </script>
+</body>
+</html>
